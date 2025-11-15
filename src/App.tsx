@@ -2,31 +2,27 @@ import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Index from './pages/Index'
 import NotFound from './pages/NotFound'
 
 const queryClient = new QueryClient()
 
-const App = () => {
-	// basename берём из Vite, чтобы он совпадал с base в vite.config.ts
-	const basename = import.meta.env.BASE_URL.replace(/\/+$/, '')
-
-	return (
-		<QueryClientProvider client={queryClient}>
-			<TooltipProvider>
-				<Toaster />
-				<Sonner />
-				<BrowserRouter basename={basename}>
-					<Routes>
-						<Route path='/' element={<Index />} />
-						{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-						<Route path='*' element={<NotFound />} />
-					</Routes>
-				</BrowserRouter>
-			</TooltipProvider>
-		</QueryClientProvider>
-	)
-}
+const App = () => (
+	<QueryClientProvider client={queryClient}>
+		<TooltipProvider>
+			<Toaster />
+			<Sonner />
+			{/* HashRouter хорошо работает на GitHub Pages */}
+			<HashRouter>
+				<Routes>
+					<Route path='/' element={<Index />} />
+					{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+					<Route path='*' element={<NotFound />} />
+				</Routes>
+			</HashRouter>
+		</TooltipProvider>
+	</QueryClientProvider>
+)
 
 export default App
