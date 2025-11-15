@@ -4,6 +4,9 @@
 // Здесь собраны все тексты и изображения.
 // Просто замените тексты и пути к фото на свои.
 
+const withBase = (path: string) =>
+	`${import.meta.env.BASE_URL.replace(/\/$/, '')}/${path.replace(/^\/+/, '')}`
+
 export const siteConfig = {
 	// ЭКРАН 1: ГЛАВНЫЙ
 	hero: {
@@ -27,22 +30,22 @@ export const siteConfig = {
 	// 6 вертикальных фото (без подписей)
 	photos: [
 		{
-			src: '/images/photo1.jpg', // Замени на путь к реальному фото
+			src: withBase('images/photo1.jpg'), // Замени на путь к реальному фото
 		},
 		{
-			src: '/images/photo2.jpg',
+			src: withBase('images/photo2.jpg'),
 		},
 		{
-			src: '/images/photo3.jpg',
+			src: withBase('images/photo3.jpg'),
 		},
 		{
-			src: '/images/photo4.jpg',
+			src: withBase('images/photo4.jpg'),
 		},
 		{
-			src: '/images/photo5.jpg',
+			src: withBase('images/photo5.jpg'),
 		},
 		{
-			src: '/images/photo6.jpg',
+			src: withBase('images/photo6.jpg'),
 		},
 	],
 
