@@ -31,7 +31,7 @@ export const StorySection = () => {
         transition={{ duration: 0.6 }}
         className="text-3xl md:text-4xl font-bold text-gradient mb-16 text-center"
       >
-        Наша история
+        Наш любимый папа
       </motion.h2>
 
       <div className="max-w-4xl mx-auto space-y-20">

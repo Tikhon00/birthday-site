@@ -1,17 +1,10 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
-import { componentTagger } from 'lovable-tagger'
 
-export default defineConfig(({ mode }) => ({
-	base: '/birthday-site/', // здесь ПОДСТАВЬ своё имя репозитория
-	server: {
-		host: '::',
-		port: 8080,
-	},
-	plugins: [react(), mode === 'development' && componentTagger()].filter(
-		Boolean
-	),
+export default defineConfig(() => ({
+	base: '/birthday-site/', // имя репозитория
+	plugins: [react()],
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
